@@ -1,0 +1,104 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Customer Service (8001)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8001",
+        "--app-dir",
+        "services/customer_service"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/services/customer_service;${workspaceFolder}/shared"
+      },
+      "subProcess": true,
+      "justMyCode": false
+    },
+    {
+      "name": "Debug: Product Service (8002)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8002",
+        "--app-dir",
+        "services/product_service"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/services/product_service;${workspaceFolder}/shared"
+      },
+      "subProcess": true,
+      "justMyCode": false
+    },
+    {
+      "name": "Debug: Order Service (8003)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8003",
+        "--app-dir",
+        "services/order_service"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/services/order_service;${workspaceFolder}/shared"
+      },
+      "subProcess": true,
+      "justMyCode": false
+    },
+    {
+      "name": "Debug: E2E Test Suite",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_services.py",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": false
+    },
+    {
+      "name": "Debug: AI Agent CLI",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/agent_cli.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Debug: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug: All 3 Services",
+      "configurations": [
+        "Debug: Customer Service (8001)",
+        "Debug: Product Service (8002)",
+        "Debug: Order Service (8003)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

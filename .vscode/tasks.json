@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "uv: Sync Workspace",
+      "type": "shell",
+      "command": "uv sync --all-packages",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: Customer Service (8001)",
+      "type": "shell",
+      "command": "uv run uvicorn app.main:app --port 8001 --app-dir services/customer_service --reload",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: Product Service (8002)",
+      "type": "shell",
+      "command": "uv run uvicorn app.main:app --port 8002 --app-dir services/product_service --reload",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: Order Service (8003)",
+      "type": "shell",
+      "command": "uv run uvicorn app.main:app --port 8003 --app-dir services/order_service --reload",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: Run E2E Test Suite",
+      "type": "shell",
+      "command": "uv run python test_services.py",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run: AI Agent CLI",
+      "type": "shell",
+      "command": "uv run python agent_cli.py",
+      "problemMatcher": []
+    }
+  ]
+}

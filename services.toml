@@ -1,0 +1,25 @@
+# Service registry for the agent.
+#
+# Tools are generated from each service's /openapi.json at startup, so adding a
+# service is one block here. Override a URL per environment with
+# <NAME>_SERVICE_URL, e.g. ORDER_SERVICE_URL=http://orders.internal:80
+#
+#   description  one line the router uses to decide when this service is relevant
+#   exclude      operation names to hide from the agent
+#   confirm      operations that need a yes/no on top of every DELETE
+
+[[service]]
+name = "customer"
+url = "http://127.0.0.1:8001"
+description = "customer accounts: names, emails, phone numbers, addresses, active flag"
+
+[[service]]
+name = "product"
+url = "http://127.0.0.1:8002"
+description = "product catalogue: names, SKUs, prices, stock levels, categories, availability"
+confirm = ["patch_product"]
+
+[[service]]
+name = "order"
+url = "http://127.0.0.1:8003"
+description = "orders and their line items: status (pending, confirmed, shipped, delivered, cancelled), totals, shipping addresses"

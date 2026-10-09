@@ -1,0 +1,14 @@
+[project]
+name = "shared"
+version = "0.1.0"
+description = "Shared utilities library for microservices (database, CRUD base, schemas)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

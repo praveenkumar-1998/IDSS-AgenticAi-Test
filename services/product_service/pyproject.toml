@@ -1,0 +1,23 @@
+[project]
+name = "product-service"
+version = "0.1.0"
+description = "Product microservice – manages product catalogue"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "shared",
+]
+
+[tool.uv.sources]
+shared = { workspace = true }
+
+[project.scripts]
+product-service = "app.main:start"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

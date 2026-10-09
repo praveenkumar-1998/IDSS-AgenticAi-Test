@@ -1,0 +1,18 @@
+# Secrets - never commit
+.env
+
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local databases
+data/*.db-shm
+data/*.db-wal
+
+# Agent logs
+logs/
+
+# Tool caches
+.ruff_cache/
