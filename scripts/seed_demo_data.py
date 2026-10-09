@@ -1,10 +1,3 @@
-"""Load demo customers, products and orders through the public APIs.
-
-Safe to run twice: customers and products are matched on email / SKU, and
-orders are only created when the order service is empty.
-
-    uv run python scripts/seed_demo_data.py
-"""
 import random
 import sys
 from pathlib import Path
